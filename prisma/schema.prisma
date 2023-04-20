@@ -1,0 +1,137 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model chains {
+  id             BigInt    @id @default(autoincrement())
+  name           String    @unique @default("")
+  defillama_name String    @unique @default("")
+  data_provider  Json?
+  is_active      Boolean   @default(false)
+  is_new         Boolean   @default(false)
+  daa            daa[]
+  dt             dt[]
+  dv             dv[]
+  smc            smc[]
+  tvl            tvl[]
+  tps            tps[]
+  ethap          ethap[]
+  mg             mg[]
+  tg             tg[]
+  fteth          fteth[]
+  fterc20        fterc20[]
+  fserc20        fserc20[]
+}
+
+model daa {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  chain_id   BigInt
+  value      BigInt
+  date       DateTime  @db.Date
+  chains     chains    @relation(fields: [chain_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model dt {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  chain_id   BigInt
+  value      BigInt
+  date       DateTime  @db.Date
+  chains     chains    @relation(fields: [chain_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model dv {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  chain_id   BigInt
+  value      BigInt
+  date       DateTime  @db.Date
+  chains     chains    @relation(fields: [chain_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model smc {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  chain_id   BigInt
+  value      BigInt
+  date       DateTime  @db.Date
+  chains     chains    @relation(fields: [chain_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model tvl {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  chain_id   BigInt
+  value      BigInt
+  date       DateTime  @db.Date
+  chains     chains    @relation(fields: [chain_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model tps {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  chain_id   BigInt
+  value      Float
+  date       DateTime  @db.Date
+  chains     chains    @relation(fields: [chain_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model ethap {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  chain_id   BigInt
+  value      Float
+  date       DateTime  @db.Date
+  chains     chains    @relation(fields: [chain_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model mg {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  chain_id   BigInt
+  value      Float
+  date       DateTime  @db.Date
+  chains     chains    @relation(fields: [chain_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model tg {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  chain_id   BigInt
+  value      Float
+  date       DateTime  @db.Date
+  chains     chains    @relation(fields: [chain_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model fteth {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  chain_id   BigInt
+  value      Float
+  date       DateTime  @db.Date
+  chains     chains    @relation(fields: [chain_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model fterc20 {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  chain_id   BigInt
+  value      Float
+  date       DateTime  @db.Date
+  chains     chains    @relation(fields: [chain_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model fserc20 {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  chain_id   BigInt
+  value      Float
+  date       DateTime  @db.Date
+  chains     chains    @relation(fields: [chain_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}

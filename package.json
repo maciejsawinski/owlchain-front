@@ -15,6 +15,7 @@
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.5.0",
 		"@tailwindcss/typography": "^0.5.9",
+		"@types/node": "^18.15.11",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
 		"autoprefixer": "^10.4.14",
@@ -24,16 +25,22 @@
 		"postcss": "^8.4.22",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
+		"prisma": "^4.13.0",
 		"svelte": "^3.54.0",
 		"svelte-check": "^3.0.1",
 		"tailwindcss": "^3.3.1",
+		"ts-node": "^10.9.1",
 		"tslib": "^2.4.1",
-		"typescript": "^5.0.0",
+		"typescript": "^5.0.4",
 		"vite": "^4.2.0"
 	},
 	"type": "module",
 	"dependencies": {
 		"@fontsource/fragment-mono": "^4.5.0",
+		"@prisma/client": "^4.13.0",
 		"daisyui": "^2.51.5"
+	},
+	"prisma": {
+		"seed": "ts-node prisma/seed.ts"
 	}
 }
