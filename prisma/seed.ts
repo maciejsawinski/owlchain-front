@@ -42,7 +42,7 @@ const fserc20 = generateRandomData(new Date('2015-09-01'), new Date('2023-05-01'
 async function main() {
 	await prisma.chains.create({
 		data: {
-			name: 'Ethereum',
+			name: 'ethereum',
 			defillama_name: 'Ethereum',
 			is_active: true,
 			is_new: false,
