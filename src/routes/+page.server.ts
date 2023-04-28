@@ -12,7 +12,7 @@ export const load = async () => {
 				orderBy: {
 					date: 'desc'
 				},
-				take: 1
+				take: 30
 			},
 			daa: {
 				select: {
@@ -21,16 +21,7 @@ export const load = async () => {
 				orderBy: {
 					date: 'desc'
 				},
-				take: 1
-			},
-			tvl: {
-				select: {
-					value: true
-				},
-				orderBy: {
-					date: 'desc'
-				},
-				take: 1
+				take: 30
 			}
 		}
 	});
