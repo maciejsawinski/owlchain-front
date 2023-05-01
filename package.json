@@ -38,7 +38,9 @@
 	"dependencies": {
 		"@fontsource/fragment-mono": "^4.5.0",
 		"@prisma/client": "^4.13.0",
-		"daisyui": "^2.51.5"
+		"daisyui": "^2.51.5",
+		"lightweight-charts": "^4.0.1",
+		"svelte-lightweight-charts": "^2.1.0"
 	},
 	"prisma": {
 		"seed": "ts-node prisma/seed.ts"

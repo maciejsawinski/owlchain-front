@@ -8,24 +8,26 @@ datasource db {
 }
 
 model chains {
-  id             BigInt    @id @default(autoincrement())
-  name           String    @unique @default("")
-  defillama_name String    @unique @default("")
-  data_provider  Json?
-  is_active      Boolean   @default(false)
-  is_new         Boolean   @default(false)
-  daa            daa[]
-  dt             dt[]
-  dv             dv[]
-  smc            smc[]
-  tvl            tvl[]
-  tps            tps[]
-  ethap          ethap[]
-  mg             mg[]
-  tg             tg[]
-  fteth          fteth[]
-  fterc20        fterc20[]
-  fserc20        fserc20[]
+  id                 BigInt    @id @default(autoincrement())
+  name               String    @unique @default("")
+  defillama_name     String    @unique @default("")
+  is_active          Boolean   @default(false)
+  is_new             Boolean   @default(false)
+  history            String    @default("")
+  last_block_checked String    @default("")
+  rpc                String    @default("")
+  daa                daa[]
+  dt                 dt[]
+  dv                 dv[]
+  ethap              ethap[]
+  fserc20            fserc20[]
+  fterc20            fterc20[]
+  fteth              fteth[]
+  mg                 mg[]
+  smc                smc[]
+  tg                 tg[]
+  tps                tps[]
+  tvl                tvl[]
 }
 
 model daa {

@@ -1,4 +1,5 @@
 import prisma from '$lib/server/prisma';
+import transformPrismaDataForChart from '$lib/server/transformPrismaDataForChart';
 
 export const load = async () => {
 	const response = await prisma.chains.findMany({
@@ -7,24 +8,28 @@ export const load = async () => {
 			name: true,
 			tps: {
 				select: {
+					date: true,
 					value: true
 				},
 				orderBy: {
-					date: 'desc'
-				},
-				take: 30
+					date: 'asc'
+				}
 			},
 			daa: {
 				select: {
+					date: true,
 					value: true
 				},
 				orderBy: {
-					date: 'desc'
-				},
-				take: 30
+					date: 'asc'
+				}
 			}
 		}
 	});
 
-	return { chains: response };
+	const chains = response.map(({ name, tps, daa }) => {
+		return { name, tps: transformPrismaDataForChart(tps), daa: transformPrismaDataForChart(daa) };
+	});
+
+	return { chains };
 };
