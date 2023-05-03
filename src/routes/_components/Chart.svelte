@@ -55,17 +55,13 @@
 	let chartApi: any;
 	let activeTab = 'tps';
 	onMount(() => {
-		chartApi.timeScale().fitContent();
+		// chartApi.timeScale().fitContent();
 	});
 
 	const toggleChart = (btnName: 'tps' | 'daa') => {
 		if (activeTab === btnName) return;
 
-		chartApi.removeSeries(series);
-		series = chartApi.addAreaSeries();
-		series.applyOptions(options.series);
 		series.setData(data[btnName]);
-		chartApi.timeScale().fitContent();
 
 		activeTab = btnName;
 	};
