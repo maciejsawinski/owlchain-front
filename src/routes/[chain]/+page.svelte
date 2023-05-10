@@ -1,9 +1,10 @@
 <script lang="ts">
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+
 	import type { PageData } from './$types';
+
 	export let data: PageData;
 	const { chain } = data;
-
-	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 </script>
 
 <svelte:head>
@@ -14,9 +15,9 @@
 <div class="flex">
 	<div>
 		<ul class="menu bg-base-100 w-56">
-			<li><a>Item 1</a></li>
-			<li><a>Item 2</a></li>
-			<li><a>Item 3</a></li>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
 		</ul>
 	</div>
 	<div class="flex flex-col">
@@ -48,9 +49,7 @@
 			<div class="stat">
 				<div class="stat-figure text-secondary">
 					<div class="avatar online">
-						<div class="w-16 rounded-full">
-							<img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-						</div>
+						<div class="w-16 rounded-full" />
 					</div>
 				</div>
 				<div class="stat-value">86%</div>

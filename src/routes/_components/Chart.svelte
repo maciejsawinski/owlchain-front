@@ -1,69 +1,100 @@
 <script lang="ts">
-	export let data: {
-		daa: { time: string; value: number }[];
-		tps: { time: string; value: number }[];
-	};
-
 	import { onMount } from 'svelte';
-	import { Chart, AreaSeries } from 'svelte-lightweight-charts';
+	import * as echarts from 'echarts';
+	import EChart from '$lib/components/EChart.svelte';
 
 	import formatNumber from '$lib/formatNumber';
 
-	const options = {
-		chart: {
-			width: 1050,
-			height: 350,
-			rightPriceScale: {
-				borderVisible: false
+	export let daa: { date: string; value: number }[];
+	export let tps: { date: string; value: number }[];
+
+	const formatData = (data: { date: string; value: number }[]) => {
+		let arr: any[] = [];
+		data.forEach((d) => {
+			const value = Number.isInteger(d.value) ? d.value : d.value.toFixed(2);
+			arr.push([d.date, value]);
+		});
+		return arr;
+	};
+	let data = { daa: formatData(daa), tps: formatData(tps) };
+
+	let activeTab = 'tps';
+	let option: any;
+
+	onMount(async () => {
+		option = {
+			color: '#0D0D0D',
+			tooltip: {
+				trigger: 'axis',
+				axisPointer: { type: 'cross' }
 			},
-			localization: {
-				priceFormatter: (v: number) => formatNumber(v, 'decimal')
-			},
-			timeScale: {
-				borderVisible: false
-			},
-			layout: {
+			textStyle: {
 				fontFamily: 'Fragment Mono',
-				background: {
-					color: '#FFFFFF'
-				},
-				lineColor: '#2B2B43',
-				textColor: '#191919'
+				color: '#0D0D0D'
 			},
-			grid: {
-				vertLines: {
-					visible: false
-				},
-				horzLines: {
-					visible: false
+			graphic: {
+				elements: [
+					{
+						type: 'text',
+						top: 'center',
+						left: 'center',
+						style: {
+							text: '🦉',
+							font: '4rem "Fragment Mono"',
+							opacity: 0.33
+						}
+					}
+				]
+			},
+			useUTC: true,
+			xAxis: {
+				type: 'time',
+				axisTick: {
+					alignWithLabel: true
 				}
 			},
-			watermark: {
-				visible: true,
-				color: 'rgba(13, 13, 13, 0.33)',
-				text: '🦉'
-			}
-		},
-		series: {
-			lineColor: '#0D0D0D',
-			topColor: '#262626',
-			bottomColor: '#FFFFFF'
-		}
-	};
-
-	let series: any;
-	let chartApi: any;
-	let activeTab = 'tps';
-	onMount(() => {
-		// chartApi.timeScale().fitContent();
+			yAxis: {
+				type: 'value',
+				splitLine: {
+					show: false
+				},
+				axisLabel: {
+					formatter: '{value} TPS'
+				},
+				axisTick: {
+					alignWithLabel: true
+				}
+			},
+			series: [
+				{
+					data: data.tps,
+					type: 'line',
+					symbol: 'none',
+					areaStyle: {
+						color: '#0D0D0D',
+						opacity: 0.85
+					}
+				}
+			]
+		};
 	});
 
 	const toggleChart = (btnName: 'tps' | 'daa') => {
 		if (activeTab === btnName) return;
 
-		series.setData(data[btnName]);
-
 		activeTab = btnName;
+		option = {
+			yAxis: {
+				axisLabel: {
+					formatter: activeTab === 'tps' ? '{value} TPS' : '{value}'
+				}
+			},
+			series: [
+				{
+					data: data[btnName]
+				}
+			]
+		};
 	};
 </script>
 
@@ -78,8 +109,5 @@
 			class="tab {activeTab === 'daa' ? 'tab-active' : ''}">dau</button
 		>
 	</div>
-
-	<Chart {...options.chart} ref={(api) => (chartApi = api)}>
-		<AreaSeries data={data.tps} {...options.series} ref={(api) => (series = api)} />
-	</Chart>
+	<EChart {option} width={1000} height={350} />
 </div>

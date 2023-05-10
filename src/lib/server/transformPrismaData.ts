@@ -6,7 +6,7 @@ export default (
 ) => {
 	return rows.map(({ date, value }) => {
 		return {
-			time: date.toISOString().slice(0, 10),
+			date: date.toISOString().slice(0, 10),
 			value: Number(value)
 		};
 	});
