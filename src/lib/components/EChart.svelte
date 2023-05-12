@@ -53,5 +53,5 @@
 </script>
 
 <div>
-	<div id="echart" style="width: {width}px;height: {height}px" />
+	<div id="echart" style="width:{width}px;height:{height}px" />
 </div>

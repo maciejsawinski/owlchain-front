@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+	import StatLink from './_components/StatLink.svelte';
 
 	import type { PageData } from './$types';
 
@@ -12,61 +13,112 @@
 </svelte:head>
 
 <Breadcrumbs steps={[{ name: chain.name }]} />
-<div class="flex">
-	<div>
-		<ul class="menu bg-base-100 w-56">
-			<li>1</li>
-			<li>2</li>
-			<li>3</li>
-		</ul>
+
+<div class="flex flex-col px-10">
+	<div class="flex flex-col mb-5">
+		<h3 class="text-xl font-bold">on-chain activity</h3>
+		<div class="flex flex-wrap p-2.5 gap-2.5">
+			<StatLink
+				chain={chain.name}
+				metric="dt"
+				name="daily transactions"
+				valueCurrent={Number(chain.dt[0].value)}
+				valueOld={Number(chain.dt[29].value)}
+			/>
+			<StatLink
+				chain={chain.name}
+				metric="tps"
+				name="tps"
+				valueCurrent={Number(chain.tps[0].value)}
+				valueOld={Number(chain.tps[29].value)}
+			/>
+			<StatLink
+				chain={chain.name}
+				metric="daa"
+				name="daily active addresses"
+				valueCurrent={Number(chain.daa[0].value)}
+				valueOld={Number(chain.daa[29].value)}
+			/>
+			<StatLink
+				chain={chain.name}
+				metric="tg"
+				name="total gas used"
+				valueCurrent={Number(chain.tg[0].value)}
+				valueOld={Number(chain.tg[29].value)}
+			/>
+		</div>
+	</div>
+	<div class="flex flex-col mb-5">
+		<h3 class="text-xl font-bold">finantial</h3>
+		<div class="flex flex-wrap p-2.5 gap-2.5">
+			<StatLink
+				chain={chain.name}
+				metric="tvl"
+				name="tvl"
+				type="currency"
+				valueCurrent={Number(chain.tvl[0].value)}
+				valueOld={Number(chain.tvl[29].value)}
+			/>
+			<StatLink
+				chain={chain.name}
+				metric="smc"
+				name="stablecoin marketcap"
+				type="currency"
+				valueCurrent={Number(chain.smc[0].value)}
+				valueOld={Number(chain.smc[29].value)}
+			/>
+			<StatLink
+				chain={chain.name}
+				metric="dv"
+				name="dexes protocols volume"
+				type="currency"
+				valueCurrent={Number(chain.dv[0].value)}
+				valueOld={Number(chain.dv[29].value)}
+			/>
+		</div>
 	</div>
 	<div class="flex flex-col">
-		<div class="stats">
-			<div class="stat">
-				<div class="self-center stat-value text-primary">Ethereum</div>
-			</div>
-
-			<div class="stat">
-				<div class="stat-figure text-secondary">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						class="inline-block w-8 h-8 stroke-current"
-						><path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M13 10V3L4 14h7v7l9-11h-7z"
-						/></svg
-					>
-				</div>
-				<div class="stat-title">Page Views</div>
-				<div class="stat-value text-secondary">2.6M</div>
-				<div class="stat-desc">21% more than last month</div>
-			</div>
-
-			<div class="stat">
-				<div class="stat-figure text-secondary">
-					<div class="avatar online">
-						<div class="w-16 rounded-full" />
-					</div>
-				</div>
-				<div class="stat-value">86%</div>
-				<div class="stat-title">Tasks done</div>
-				<div class="stat-desc text-secondary">31 tasks remaining</div>
-			</div>
-		</div>
-		<div>
-			<div class="card w-96 bg-base-100 shadow">
-				<div class="card-body">
-					<h2 class="card-title">Shoes!</h2>
-					<p>If a dog chews shoes whose shoes does he choose?</p>
-				</div>
-				<figure>
-					<img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" />
-				</figure>
-			</div>
+		<h3 class="text-xl font-bold">prices</h3>
+		<div class="flex flex-wrap p-2.5 gap-2.5">
+			<StatLink
+				chain={chain.name}
+				metric="mg"
+				name="median gas price"
+				valueCurrent={Number(chain.mg[0].value)}
+				valueOld={Number(chain.mg[29].value)}
+			/>
+			<StatLink
+				chain={chain.name}
+				metric="ethap"
+				name="average eth price"
+				type="currency"
+				valueCurrent={Number(chain.ethap[0].value)}
+				valueOld={Number(chain.ethap[29].value)}
+			/>
+			<StatLink
+				chain={chain.name}
+				metric="fteth"
+				name="fee transfer eth"
+				type="currency"
+				valueCurrent={Number(chain.fteth[0].value)}
+				valueOld={Number(chain.fteth[29].value)}
+			/>
+			<StatLink
+				chain={chain.name}
+				metric="fterc20"
+				name="fee transfer erc-20"
+				type="currency"
+				valueCurrent={Number(chain.fterc20[0].value)}
+				valueOld={Number(chain.fterc20[29].value)}
+			/>
+			<StatLink
+				chain={chain.name}
+				metric="fserc20"
+				name="fee swap erc-20"
+				type="currency"
+				valueCurrent={Number(chain.fserc20[0].value)}
+				valueOld={Number(chain.fserc20[29].value)}
+			/>
 		</div>
 	</div>
 </div>

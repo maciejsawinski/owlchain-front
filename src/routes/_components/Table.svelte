@@ -1,7 +1,7 @@
 <script lang="ts">
 	import formatNumber from '$lib/formatNumber';
 
-	import PercentageChange from '$lib/components/PercentageChangeWithColor.svelte';
+	import PercentageDifference from '$lib/components/PercentageDifferenceWithColor.svelte';
 
 	export let chains: {
 		name: string;
@@ -37,17 +37,17 @@
 					></td
 				>
 				<td>
-					<PercentageChange a={chain.tps[0].value} b={chain.tps[1].value} />
+					<PercentageDifference a={chain.tps[0].value} b={chain.tps[1].value} />
 				</td><td>
-					<PercentageChange a={chain.tps[0].value} b={chain.tps[29].value} />
+					<PercentageDifference a={chain.tps[0].value} b={chain.tps[29].value} />
 				</td>
 				<td class="font-bold"
 					><a class="link link-hover" href={`/${chain.name}/daa`}
 						>{formatNumber(chain.daa[0].value, 'decimal')}</a
 					></td
 				>
-				<td><PercentageChange a={chain.daa[0].value} b={chain.daa[1].value} /></td>
-				<td><PercentageChange a={chain.daa[0].value} b={chain.daa[29].value} /></td>
+				<td><PercentageDifference a={chain.daa[0].value} b={chain.daa[1].value} /></td>
+				<td><PercentageDifference a={chain.daa[0].value} b={chain.daa[29].value} /></td>
 			</tr>
 		{/each}
 	</tbody>

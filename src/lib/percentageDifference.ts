@@ -5,6 +5,5 @@ export default (a: number | bigint, b: number | bigint): string => {
 	a = Number(a);
 	b = Number(b);
 
-	const change = b - a;
-	return `${((change / Math.abs(a)) * 100).toFixed(2)}%`;
+	return `${(((a - b) / b) * 100).toFixed(2)}%`;
 };
