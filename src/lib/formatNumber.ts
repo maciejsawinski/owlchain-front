@@ -1,10 +1,14 @@
-export default (n: number | bigint, s: 'decimal' | 'currency') => {
+export default (
+	n: number | bigint,
+	s: 'decimal' | 'currency',
+	f: 'compact' | 'standard' = 'compact'
+) => {
 	if (typeof n !== 'number' && typeof n !== 'bigint') return n;
 
-	const f = new Intl.NumberFormat('en-US', {
+	const r = new Intl.NumberFormat('en-US', {
 		style: s,
 		currency: s === 'currency' ? 'USD' : undefined,
-		notation: 'compact'
+		notation: f
 	});
-	return f.format(n);
+	return r.format(n);
 };

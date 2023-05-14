@@ -2,6 +2,8 @@
 	import { onMount, onDestroy } from 'svelte';
 	import * as echarts from 'echarts';
 
+	import chartDefaultStyles from '$lib/data/chartDefaultStyles';
+
 	export let width: number;
 	export let height: number;
 	export let option: {};
@@ -13,7 +15,7 @@
 
 	const setOption = () => {
 		if (chart && !chart.isDisposed()) {
-			chart.setOption(option, notMerge, replaceMerge, lazyUpdate);
+			chart.setOption({ ...chartDefaultStyles, ...option }, notMerge, replaceMerge, lazyUpdate);
 		}
 	};
 

@@ -1,12 +1,15 @@
 import { error } from '@sveltejs/kit';
+import type { PageServerLoad } from './$types';
 
 import prisma from '$lib/server/prisma';
 
-export const load = async ({ params }) => {
+export const load = (async ({ params }) => {
 	const response = await prisma.chains.findFirst({
 		where: { name: params.chain },
 		select: {
 			name: true,
+			website_url: true,
+			github_url: true,
 			daa: {
 				select: {
 					date: true,
@@ -137,4 +140,4 @@ export const load = async ({ params }) => {
 	}
 
 	return { chain: response };
-};
+}) satisfies PageServerLoad;

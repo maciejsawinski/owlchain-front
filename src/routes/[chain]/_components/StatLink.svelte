@@ -25,7 +25,7 @@
 					</div>
 				</div>
 				<div class="stat-figure text-secondary text-5xl font-bold">
-					{valueCurrent > valueOld ? '↗' : '↘'}
+					{valueCurrent > valueOld ? '📈' : '📉'}
 				</div>
 			</div>
 		</div>

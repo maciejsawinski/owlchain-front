@@ -1,9 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import * as echarts from 'echarts';
 	import EChart from '$lib/components/EChart.svelte';
-
-	import formatNumber from '$lib/formatNumber';
 
 	export let daa: { date: string; value: number }[];
 	export let tps: { date: string; value: number }[];
@@ -23,35 +20,9 @@
 
 	onMount(async () => {
 		option = {
-			color: '#0D0D0D',
 			tooltip: {
 				trigger: 'axis',
 				axisPointer: { type: 'cross' }
-			},
-			textStyle: {
-				fontFamily: 'Fragment Mono',
-				color: '#0D0D0D'
-			},
-			graphic: {
-				elements: [
-					{
-						type: 'text',
-						top: 'center',
-						left: 'center',
-						style: {
-							text: '🦉',
-							font: '4rem "Fragment Mono"',
-							opacity: 0.33
-						}
-					}
-				]
-			},
-			useUTC: true,
-			xAxis: {
-				type: 'time',
-				axisTick: {
-					alignWithLabel: true
-				}
 			},
 			yAxis: {
 				type: 'value',

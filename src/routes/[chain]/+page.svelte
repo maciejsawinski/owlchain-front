@@ -14,10 +14,30 @@
 
 <Breadcrumbs steps={[{ name: chain.name }]} />
 
-<div class="flex flex-col px-10">
+<div class="flex">
+	<h2 class=" mr-2.5 text-4xl font-bold">
+		{chain.name}
+	</h2>
+	<div class="flex text-2xl">
+		<a
+			class="block self-end link link-hover"
+			href={chain.website_url}
+			target="_blank"
+			rel="noopener noreferrer">🌐</a
+		>
+		<a
+			class="block self-end link link-hover"
+			href={chain.github_url}
+			target="_blank"
+			rel="noopener noreferrer">👨‍💻</a
+		>
+	</div>
+</div>
+
+<div class="flex flex-col mt-5 px-10">
 	<div class="flex flex-col mb-5">
 		<h3 class="text-xl font-bold">on-chain activity</h3>
-		<div class="flex flex-wrap p-2.5 gap-2.5">
+		<div class="flex flex-wrap mt-5 gap-5">
 			<StatLink
 				chain={chain.name}
 				metric="dt"
@@ -49,8 +69,8 @@
 		</div>
 	</div>
 	<div class="flex flex-col mb-5">
-		<h3 class="text-xl font-bold">finantial</h3>
-		<div class="flex flex-wrap p-2.5 gap-2.5">
+		<h3 class="text-xl font-bold">financial</h3>
+		<div class="flex flex-wrap gap-5">
 			<StatLink
 				chain={chain.name}
 				metric="tvl"
@@ -79,7 +99,7 @@
 	</div>
 	<div class="flex flex-col">
 		<h3 class="text-xl font-bold">prices</h3>
-		<div class="flex flex-wrap p-2.5 gap-2.5">
+		<div class="flex flex-wrap gap-5">
 			<StatLink
 				chain={chain.name}
 				metric="mg"

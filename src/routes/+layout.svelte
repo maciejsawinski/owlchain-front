@@ -16,7 +16,7 @@
 		<slot />
 	</main>
 
-	<footer class="footer footer-center p-4 bg-base-300 text-base-content mt-5">
+	<footer class="footer footer-center p-5 bg-base-300 text-base-content mt-5">
 		<div>
 			<p>© 2023 owlchain.xyz</p>
 		</div>
