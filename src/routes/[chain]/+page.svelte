@@ -15,7 +15,7 @@
 <Breadcrumbs steps={[{ name: chain.name }]} />
 
 <div class="flex">
-	<h2 class=" mr-2.5 text-4xl font-bold">
+	<h2 class="mr-2.5 text-4xl font-bold">
 		{chain.name}
 	</h2>
 	<div class="flex text-2xl">

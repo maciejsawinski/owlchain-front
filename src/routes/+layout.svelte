@@ -8,11 +8,16 @@
 </svelte:head>
 
 <div class="flex flex-col min-h-screen">
-	<div class="navbar bg-base-100 mb-5">
-		<a href="/" class="btn btn-ghost normal-case text-xl">🦉⛓ analytics</a>
+	<div class="navbar bg-base-100">
+		<div class="flex-1">
+			<a href="/" class="btn btn-ghost normal-case text-xl">🦉⛓ analytics</a>
+		</div>
+		<div class="navbar-end">
+			<a href="/docs" class="btn lowercase">docs</a>
+		</div>
 	</div>
 
-	<main class="flex-1 p-5">
+	<main class="flex-1 px-5">
 		<slot />
 	</main>
 

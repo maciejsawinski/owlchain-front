@@ -39,7 +39,9 @@
 	"dependencies": {
 		"@fontsource/fragment-mono": "^4.5.0",
 		"@prisma/client": "^4.14.0",
-		"daisyui": "^2.51.5"
+		"@types/marked": "^4.3.0",
+		"daisyui": "^2.51.5",
+		"marked": "^5.0.2"
 	},
 	"prisma": {
 		"seed": "ts-node prisma/seed.ts"

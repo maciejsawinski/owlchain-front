@@ -22,4 +22,4 @@
 	<Chart data={chain[metric.slug]} currency={metric.currency} />
 </div>
 
-<div class="mt-5">source: <a class="link link-hover" href={`/`}>{metric.source}</a></div>
+<div class="mt-5">source: <a class="link link-hover" href={`/docs`}>{metric.source}</a></div>
