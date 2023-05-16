@@ -12,7 +12,7 @@
 </script>
 
 <a href={`/${chain}/${metric}`} class="hover:bg-base-300">
-	<div class="card shadow w-96">
+	<div class="sm:w-96 card shadow">
 		<div class="card-body">
 			<div class="stat place-items-center">
 				<div class="stat-title">{name}</div>
@@ -24,7 +24,7 @@
 						<PercentageDifference a={valueCurrent} b={valueOld} />
 					</div>
 				</div>
-				<div class="stat-figure text-secondary text-5xl font-bold">
+				<div class="hidden sm:block stat-figure text-secondary text-5xl font-bold">
 					{valueCurrent > valueOld ? '📈' : '📉'}
 				</div>
 			</div>

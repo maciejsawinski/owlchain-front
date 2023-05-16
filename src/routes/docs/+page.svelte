@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<title>🦉⛓ | docs</title>
+	<title>owlchain | docs</title>
 </svelte:head>
 
 <Breadcrumbs steps={[{ name: 'docs' }]} />

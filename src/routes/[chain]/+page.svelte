@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-	<title>🦉⛓ | {chain.name}</title>
+	<title>owlchain | {chain.name}</title>
 </svelte:head>
 
 <Breadcrumbs steps={[{ name: chain.name }]} />
@@ -34,7 +34,7 @@
 	</div>
 </div>
 
-<div class="flex flex-col mt-5 px-10">
+<div class="flex flex-col justify-center mt-5 px-10">
 	<div class="flex flex-col mb-5">
 		<h3 class="text-xl font-bold">on-chain activity</h3>
 		<div class="flex flex-wrap mt-5 gap-5">

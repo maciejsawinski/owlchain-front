@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-	<title>🦉⛓ | {chain.name} - {metric.name}</title>
+	<title>owlchain | {chain.name} - {metric.name}</title>
 </svelte:head>
 
 <Breadcrumbs steps={[{ name: chain.name, href: `/${chain.name}` }, { name: metric.name }]} />

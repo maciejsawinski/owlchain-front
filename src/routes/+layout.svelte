@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-	<title>🦉⛓ analytics</title>
+	<title>owlchain analytics</title>
 </svelte:head>
 
 <div class="flex flex-col min-h-screen">
