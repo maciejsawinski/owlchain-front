@@ -1,5 +1,4 @@
 export default {
-	useUTC: true,
 	color: '#0D0D0D',
 	textStyle: {
 		fontFamily: 'Fragment Mono',
