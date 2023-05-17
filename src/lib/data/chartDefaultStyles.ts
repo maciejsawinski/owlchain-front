@@ -5,7 +5,9 @@ export default {
 		fontFamily: 'Fragment Mono',
 		color: '#0D0D0D'
 	},
-	animationDurationUpdate: 100,
+	animationDurationUpdate: 50,
+	animationDuration: 500,
+	animationEasing: 'backOut',
 	graphic: {
 		elements: [
 			{
