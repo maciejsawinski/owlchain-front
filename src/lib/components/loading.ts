@@ -13,15 +13,7 @@ const newLoading = () => {
 		});
 	}
 
-	function setLoading(isLoading: boolean) {
-		update(() => {
-			return {
-				status: isLoading ? 'LOADING' : 'IDLE'
-			};
-		});
-	}
-
-	return { subscribe, update, set, setNavigate, setLoading };
+	return { subscribe, update, set, setNavigate };
 };
 
 export const loading = newLoading();

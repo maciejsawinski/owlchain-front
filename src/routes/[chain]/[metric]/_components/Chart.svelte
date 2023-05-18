@@ -56,7 +56,7 @@
 			dataZoom: [
 				{
 					type: 'slider',
-					minValueSpan: 3600 * 24 * 1000 * 2,
+					minValueSpan: 2592000000,
 					dataBackground: {
 						areaStyle: {
 							color: '#E6E5E5'
@@ -93,6 +93,7 @@
 				{
 					data: formatData(data),
 					type: 'line',
+					smooth: 0.25,
 					symbol: 'none',
 					areaStyle: {
 						color: '#0D0D0D',

@@ -52,7 +52,7 @@
 	</div>
 
 	<main class="flex-1 px-5">
-		{#if $loading.status === 'LOADING'}
+		{#if $loading.status === 'NAVIGATING'}
 			<Loading />
 		{:else}
 			<slot />

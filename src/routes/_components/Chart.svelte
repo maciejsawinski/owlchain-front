@@ -40,6 +40,7 @@
 				{
 					data: data.tps,
 					type: 'line',
+					smooth: 0.25,
 					symbol: 'none',
 					areaStyle: {
 						color: '#0D0D0D',
