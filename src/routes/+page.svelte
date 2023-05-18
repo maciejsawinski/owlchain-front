@@ -8,6 +8,10 @@
 	const { chains } = data;
 </script>
 
+<svelte:head>
+	<title>owlchain analytics</title>
+</svelte:head>
+
 <div class="flex justify-center"><Chart daa={chains[0].daa} tps={chains[0].tps} /></div>
 <div class="overflow-x-auto mt-5 flex justify-center">
 	<Table {chains} />

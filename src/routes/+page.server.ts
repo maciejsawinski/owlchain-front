@@ -1,7 +1,9 @@
+import type { PageServerLoad } from './$types';
+
 import prisma from '$lib/server/prisma';
 import transformPrismaData from '$lib/server/transformPrismaData';
 
-export const load = async () => {
+export const load = (async () => {
 	const response = await prisma.chains.findMany({
 		where: { is_active: true },
 		select: {
@@ -34,4 +36,4 @@ export const load = async () => {
 	});
 
 	return { chains };
-};
+}) satisfies PageServerLoad;

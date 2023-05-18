@@ -1,6 +1,6 @@
 ### about data
 
-Data points are updated daily after 00:00 UTC.
+Data points are updated daily at 06:00 UTC.
 
 ### sources
 
