@@ -15,7 +15,7 @@
 			formattedValue = Number.isInteger(formattedValue)
 				? formattedValue
 				: formattedValue.toFixed(2);
-			arr.push([d.date.toISOString().slice(0, 10), formattedValue]);
+			arr.push([new Date(d.date).toISOString().slice(0, 10), formattedValue]);
 		});
 		return arr;
 	};

@@ -2,8 +2,16 @@ import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
 import prisma from '$lib/server/prisma';
+import { redis } from '$lib/server/redis';
+import { replacer, reviver } from '$lib/server/transformJsonData';
 
-export const load = (async ({ params }) => {
+export const load = (async ({ params, setHeaders }) => {
+	const cached = await redis.get(params.chain);
+
+	if (cached) {
+		return JSON.parse(cached, reviver);
+	}
+
 	const response = await prisma.chains.findFirst({
 		where: { name: params.chain },
 		select: {
@@ -138,6 +146,9 @@ export const load = (async ({ params }) => {
 			message: 'Not found'
 		});
 	}
+
+	setHeaders({ 'cache-control': 'max-age=14400' });
+	await redis.set(params.chain, JSON.stringify({ chain: response }, replacer), 'EX', 14400);
 
 	return { chain: response };
 }) satisfies PageServerLoad;
